@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>appsfactory</groupId>
+    <artifactId>keycloak-auth-test-0.4.2-parent</artifactId>
+    <version>0.1.0SNAPSHOT</version>
+    <relativePath>../keycloak-auth-test-0.4.2-parent</relativePath>
+  </parent>
+
+  <artifactId>keycloak-auth-test-0.4.2-application</artifactId>
+
+  <name>Appsfactory Keycloak Auth Test 0.4.2 Application</name>
+  <description>Appsfactory Keycloak Auth Test 0.4.2 Application</description>
+
+  <organization>
+    <name>Appsfactory GmbH</name>
+    <url>https://appsfactory.de</url>
+  </organization>
+
+  <properties>
+    <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
+    <docker.image.from>eclipse-temurin:17-jre</docker.image.from>
+    <docker.image.to.name>keycloak-auth-test-0.4.2-application</docker.image.to.name>
+    <docker.image.to.version>${project.version}</docker.image.to.version>
+    <docker.build.jib.goal>dockerBuild</docker.build.jib.goal>
+  </properties>
+
+  <dependencies>
+
+    <!-- Spring Boot -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+<!--    <dependency>-->
+<!--      <groupId>org.springframework.boot</groupId>-->
+<!--      <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--    </dependency>-->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-spring-boot-starter</artifactId>
+      <version>20.0.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.keycloak.bom</groupId>
+      <artifactId>keycloak-adapter-bom</artifactId>
+      <version>20.0.3</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <!-- OpenAPI -->
+
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-ui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>appsfactory</groupId>
+      <artifactId>keycloak-auth-test-0.4.2-domain</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build-info</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>${jib-maven-plugin.version}</version>
+        <configuration>
+          <from>
+            <image>${docker.image.from}</image>
+          </from>
+          <to>
+            <image>${docker.image.to.name}</image>
+            <tags>
+              <tag>${docker.image.to.version}</tag>
+            </tags>
+          </to>
+          <container>
+            <!--TODO verify mainClass-->
+            <mainClass>appsfactory.keycloak.auth.application.Application</mainClass>
+            <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+            <expandClasspathDependencies>true</expandClasspathDependencies>
+          </container>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <goals>
+              <goal>${docker.build.jib.goal}</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

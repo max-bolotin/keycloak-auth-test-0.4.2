@@ -1,0 +1,38 @@
+
+server:
+  port: 9090
+  shutdown: graceful
+
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+  endpoints:
+    web:
+      exposure:
+# make sure endpoints are either secured and/or not reachable from outside
+       include: health, caches, env, info, loggers, metrics, mappings
+
+spring:
+  application:
+    name: Appsfactory Keycloak Auth Test 0.4.2
+  jmx:
+    enabled: false
+  jackson:
+    default-property-inclusion: non_null
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  packagesToScan: appsfactory.keycloak.auth.application.api
+  pathsToMatch: /api/**
+  swagger-ui:
+    path: /swagger-ui/api-docs.html
+
+keycloak:
+  realm: demorealm
+  auth-server-url: http://localhost:8080
+  resource: demo-springboot
+  public-client: true
+  bearer-only: true

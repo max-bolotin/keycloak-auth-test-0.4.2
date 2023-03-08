@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Inherit the defaults of Spring Boot -->
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.2</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>appsfactory</groupId>
+  <artifactId>keycloak-auth-test-0.4.2-dependencies</artifactId>
+  <version>0.1.0SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Appsfactory Keycloak Auth Test 0.4.2 Dependencies</name>
+  <description>Appsfactory Keycloak Auth Test 0.4.2 Dependencies</description>
+
+  <organization>
+    <name>Appsfactory GmbH</name>
+    <url>https://appsfactory.de</url>
+  </organization>
+
+  <properties>
+
+    <!-- Spring Cloud -->
+
+    <spring-cloud.version>2021.0.3</spring-cloud.version>
+    <springdoc-openapi-ui.version>1.6.9</springdoc-openapi-ui.version>
+
+  </properties>
+
+  <dependencyManagement>
+
+    <dependencies>
+
+      <!-- Spring Cloud -->
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Insert from here the dependencies of the 3rd party libraries -->
+
+      <!-- OpenAPI -->
+
+      <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-ui</artifactId>
+        <version>${springdoc-openapi-ui.version}</version>
+      </dependency>
+
+      <!-- Insert from here the dependencies of the project -->
+
+      <dependency>
+        <groupId>appsfactory</groupId>
+        <artifactId>keycloak-auth-test-0.4.2-domain</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>appsfactory</groupId>
+        <artifactId>keycloak-auth-test-0.4.2-infrastructure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
+    </dependencies>
+
+  </dependencyManagement>
+
+  <repositories>
+
+    <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
+
+    <!-- Main Maven repository -->
+
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+  </repositories>
+
+  <pluginRepositories>
+
+    <!-- Main Maven repository -->
+
+    <pluginRepository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+
+  </pluginRepositories>
+
+</project>

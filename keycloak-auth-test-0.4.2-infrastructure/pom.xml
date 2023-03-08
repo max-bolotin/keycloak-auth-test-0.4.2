@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+    <groupId>appsfactory</groupId>
+    <artifactId>keycloak-auth-test-0.4.2-parent</artifactId>
+    <version>0.1.0SNAPSHOT</version>
+    <relativePath>../keycloak-auth-test-0.4.2-parent</relativePath>
+  </parent>
+
+	<artifactId>keycloak-auth-test-0.4.2-infrastructure</artifactId>
+
+	<name>Appsfactory Keycloak Auth Test 0.4.2 Infrastructure</name>
+  <description>Appsfactory Keycloak Auth Test 0.4.2 Infrastructure</description>
+
+  <organization>
+    <name>Appsfactory GmbH</name>
+    <url>https://appsfactory.de</url>
+  </organization>
+
+	<dependencies>
+
+		<!-- please insert here all dependencies -->
+
+	</dependencies>
+
+</project>
