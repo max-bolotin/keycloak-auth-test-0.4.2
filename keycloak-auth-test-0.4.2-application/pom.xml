@@ -81,7 +81,10 @@
       <groupId>appsfactory</groupId>
       <artifactId>keycloak-auth-test-0.4.2-domain</artifactId>
     </dependency>
-
+    <dependency>
+      <groupId>appsfactory</groupId>
+      <artifactId>keycloak-auth-test-0.4.2-infrastructure</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

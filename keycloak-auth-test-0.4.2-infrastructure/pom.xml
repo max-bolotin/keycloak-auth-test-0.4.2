@@ -20,7 +20,11 @@
   </organization>
 
 	<dependencies>
-
+    <dependency>
+      <groupId>appsfactory</groupId>
+      <artifactId>keycloak-auth-test-0.4.2-domain</artifactId>
+      <version>0.1.0SNAPSHOT</version>
+    </dependency>
 		<!-- please insert here all dependencies -->
 
 	</dependencies>

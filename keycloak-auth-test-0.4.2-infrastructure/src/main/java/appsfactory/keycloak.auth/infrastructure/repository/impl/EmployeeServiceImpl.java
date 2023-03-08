@@ -1,8 +1,8 @@
-package appsfactory.keycloak.auth.domain.service.impl;
+package appsfactory.keycloak.auth.infrastructure.repository.impl;
 
 import appsfactory.keycloak.auth.domain.model.Employee;
-import appsfactory.keycloak.auth.domain.repository.EmployeeRepository;
 import appsfactory.keycloak.auth.domain.service.EmployeeService;
+import appsfactory.keycloak.auth.infrastructure.repository.EmployeeRepository;
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;

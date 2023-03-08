@@ -1,4 +1,4 @@
-package appsfactory.keycloak.auth.domain.repository;
+package appsfactory.keycloak.auth.infrastructure.repository;
 
 import appsfactory.keycloak.auth.domain.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
